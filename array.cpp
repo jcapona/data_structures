@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include <cstdio>
 #include <cstring>
 #include <cstdlib>
@@ -26,7 +27,7 @@ class Array {
         size_t m_size;
         size_t m_capacity;
         T* m_data;
-        size_t resize();
+        void resize();
 };
 
 template <class T>
@@ -34,6 +35,8 @@ Array<T>::Array() {
     m_capacity = MIN_CAPACITY;
     m_size = 0;
     m_data = (T*)malloc(m_capacity * sizeof(*m_data));
+    if (!m_data)
+        throw std::bad_alloc();
 }
 
 template <class T>
@@ -77,14 +80,13 @@ size_t Array<T>::capacity() {
 }
 
 template <class T>
-size_t Array<T>::resize() {
+void Array<T>::resize() {
     size_t capacity = m_capacity*GROWTH_FACTOR;
     T *tmp = (T*)realloc(m_data, capacity * sizeof(*m_data));
-    if (tmp) {
-        m_data = tmp;
-        m_capacity = capacity;
-    }
-    return m_capacity;
+    if (!tmp)
+        throw std::bad_alloc();
+    m_data = tmp;
+    m_capacity = capacity;
 }
 
 template <class T>
@@ -100,4 +102,3 @@ template <class T>
 int Array<T>::is_empty() {
     return m_size == 0;
 }
-

@@ -1,4 +1,5 @@
-#include <iostream>
+#include <array.h>
+
 #include <stdexcept>
 #include <cstdio>
 #include <cstring>
@@ -7,28 +8,6 @@
 #define MIN_CAPACITY 10
 #define GROWTH_FACTOR 2
 
-template <class T>
-class Array {
-    public:
-        Array();
-        ~Array();
-
-        void push(T value);
-        T pop();
-        void set(size_t index, T value);
-        T get(size_t index);
-
-        size_t size();
-        size_t capacity();
-        void print();
-        int is_empty();
-
-    private:
-        size_t m_size;
-        size_t m_capacity;
-        T* m_data;
-        void resize();
-};
 
 template <class T>
 Array<T>::Array() {
@@ -91,7 +70,7 @@ void Array<T>::resize() {
 
 template <class T>
 void Array<T>::print() {
-    int i = 0;
+    size_t i = 0;
     while (i < m_size) {
         std::cout << "Array[" << i << "] = " << this->get(i) << "\n";
         i++;
@@ -102,3 +81,7 @@ template <class T>
 int Array<T>::is_empty() {
     return m_size == 0;
 }
+
+template class Array<int>;
+template class Array<float>;
+template class Array<std::string>;

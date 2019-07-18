@@ -8,7 +8,7 @@ LIB=lib/libdatastructures.a
 
 default: all
 # Object files
-OBJS=src/array.o
+OBJS=src/array.o src/linked_list.o src/double_linked_list.o
 
 all: lib $(LIB)
 

@@ -6,7 +6,7 @@ CXXFLAGS=$(CXXOPTS) $(INCLUDES)
 # Libs flags
 LDLIBS=-ldatastructures
 # Binaries
-TARGETS=test_array
+TARGETS=test_array test_linked_list test_double_linked_list
 
 all:$(TARGETS)
 

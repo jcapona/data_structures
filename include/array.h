@@ -22,7 +22,7 @@ class Array {
         void set(size_t index, T value);
         //fetches the value in the array at a given index
         T get(size_t index);
-        // returns the existing size of the array
+        // returns the current size of the array
         size_t size();
         //returns the current capacity of they array
         size_t capacity();

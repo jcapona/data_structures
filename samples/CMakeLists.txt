@@ -1,0 +1,8 @@
+add_executable(test_array test_array.cc)
+target_link_libraries(test_array data_structures)
+
+add_executable(test_double_linked_list test_double_linked_list.cc)
+target_link_libraries(test_double_linked_list data_structures)
+
+add_executable(test_linked_list test_linked_list.cc)
+target_link_libraries(test_linked_list data_structures)

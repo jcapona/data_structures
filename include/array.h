@@ -15,7 +15,7 @@ class Array {
         //  method to add elements to the dynamic array
         void push(T value);
 
-        // Returns the value at the top of the array, and removes it from the array
+        // returns the value at the top of the array, and removes it from the array
         T pop();
         // inserts an element into the array at a given index, if they index is larger than the existing size of the array
         // array is extended and filled with zeros
